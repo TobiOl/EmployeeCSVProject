@@ -1,6 +1,7 @@
 package com.sparta.csvproject;
 
 import java.sql.Date;
+import java.util.Objects;
 
 public class Employee {
     private int employeeID;
@@ -15,14 +16,14 @@ public class Employee {
     private int employeeSalary;
 
     public Employee(int employeeID, String employeeNamePrefix, String employeeFirstname, char employeeMiddleInitial, String employeeLastName,
-                    char employeeGender, String employeeString, Date employeeDoB, Date employeeDoJ, int employeeSalary) {
+                    char employeeGender, String employeeEmail, Date employeeDoB, Date employeeDoJ, int employeeSalary) {
         this.employeeID = employeeID;
         this.employeeNamePrefix = employeeNamePrefix;
         this.employeeFirstname = employeeFirstname;
         this.employeeMiddleInitial = employeeMiddleInitial;
         this.employeeLastName = employeeLastName;
         this.employeeGender = employeeGender;
-        this.employeeString = employeeString;
+        this.employeeString = employeeEmail;
         this.employeeDoB = employeeDoB;
         this.employeeDoJ = employeeDoJ;
         this.employeeSalary = employeeSalary;
@@ -107,4 +108,32 @@ public class Employee {
     public void setEmployeeSalary(int employeeSalary) {
         this.employeeSalary = employeeSalary;
     }
+
+    public boolean CheckIfValid(){
+        boolean result = true;
+        if (Objects.isNull(this.getEmployeeID())||Objects.isNull(this.getEmployeeDoJ())||Objects.isNull(this.getEmployeeDoB())||Objects.isNull(this.getEmployeeGender())
+                ||Objects.isNull(this.getEmployeeFirstname())
+                ||Objects.isNull(this.getEmployeeLastName())||Objects.isNull(this.getEmployeeNamePrefix())||Objects.isNull(this.getEmployeeMiddleInitial())||Objects.isNull(this.getEmployeeSalary())
+                ||Objects.isNull(this.getEmployeeString())){
+            result = false;
+        }
+        return result;
+    }
+    @Override
+    public boolean equals(Object other) {
+        if (this == null){
+            return false;
+        }
+        if (this==other){
+            return true;
+        }
+        Employee employee = (Employee) other;
+        return employeeID ==employee.employeeID;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(employeeID);
+    }
+
 }
