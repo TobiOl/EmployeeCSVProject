@@ -10,7 +10,7 @@ public class Employee {
     private char employeeMiddleInitial;
     private String employeeLastName;
     private char employeeGender;
-    private String employeeString;
+    private String employeeEmail;
     private Date employeeDoB;
     private Date employeeDoJ;
     private int employeeSalary;
@@ -23,7 +23,7 @@ public class Employee {
         this.employeeMiddleInitial = employeeMiddleInitial;
         this.employeeLastName = employeeLastName;
         this.employeeGender = employeeGender;
-        this.employeeString = employeeEmail;
+        this.employeeEmail = employeeEmail;
         this.employeeDoB = employeeDoB;
         this.employeeDoJ = employeeDoJ;
         this.employeeSalary = employeeSalary;
@@ -77,12 +77,12 @@ public class Employee {
         this.employeeGender = employeeGender;
     }
 
-    public String getEmployeeString() {
-        return employeeString;
+    public String getEmployeeEmail() {
+        return employeeEmail;
     }
 
-    public void setEmployeeString(String employeeString) {
-        this.employeeString = employeeString;
+    public void setEmployeeEmail(String employeeEmail) {
+        this.employeeEmail = employeeEmail;
     }
 
     public Date getEmployeeDoB() {
@@ -114,7 +114,7 @@ public class Employee {
         if (Objects.isNull(this.getEmployeeID())||Objects.isNull(this.getEmployeeDoJ())||Objects.isNull(this.getEmployeeDoB())||Objects.isNull(this.getEmployeeGender())
                 ||Objects.isNull(this.getEmployeeFirstname())
                 ||Objects.isNull(this.getEmployeeLastName())||Objects.isNull(this.getEmployeeNamePrefix())||Objects.isNull(this.getEmployeeMiddleInitial())||Objects.isNull(this.getEmployeeSalary())
-                ||Objects.isNull(this.getEmployeeString())){
+                ||Objects.isNull(this.getEmployeeEmail())){
             result = false;
         }
         return result;

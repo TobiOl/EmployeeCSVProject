@@ -16,8 +16,7 @@ public class CSVProjectController {
         CSVProjectView view = new CSVProjectView();
 
         //try-with-resources. closes resources when finished trying
-        try (BufferedReader in = new BufferedReader(new FileReader("EmployeeRecords.csv"));
-             BufferedWriter out = new BufferedWriter(new FileWriter("output.txt"))){
+        try (BufferedReader in = new BufferedReader(new FileReader("EmployeeRecords.csv"))){
             String headerLine = in.readLine();
             while ((line = in.readLine()) != null){
                 values = line.split(",");
@@ -42,6 +41,7 @@ public class CSVProjectController {
         int uniqueCount = UniqueCount(uniqueValues);
         int emptyFieldCount = EmptyFieldCount(NullRecords);
         int cleanFieldCount = CleanFieldCount(NullRecords, employeeStore);
+        DatabaseDriver.DatabaseHandler();
         view.PrintResults(duplicatesCount, uniqueCount, emptyFieldCount, cleanFieldCount);
     }
 
