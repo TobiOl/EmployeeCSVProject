@@ -14,8 +14,8 @@ public class Employee {
     private Date employeeDoB;
     private Date employeeDoJ;
     private int employeeSalary;
+    public Employee(){
 
-    public Employee() {
     }
 
     public Employee(int employeeID, String employeeNamePrefix, String employeeFirstname, char employeeMiddleInitial, String employeeLastName,
@@ -139,4 +139,19 @@ public class Employee {
         return Objects.hash(employeeID);
     }
 
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "employeeID=" + employeeID +
+                ", employeeNamePrefix='" + employeeNamePrefix + '\'' +
+                ", employeeFirstname='" + employeeFirstname + '\'' +
+                ", employeeMiddleInitial=" + employeeMiddleInitial +
+                ", employeeLastName='" + employeeLastName + '\'' +
+                ", employeeGender=" + employeeGender +
+                ", employeeEmail='" + employeeEmail + '\'' +
+                ", employeeDoB=" + employeeDoB +
+                ", employeeDoJ=" + employeeDoJ +
+                ", employeeSalary=" + employeeSalary +
+                '}';
+    }
 }

@@ -41,7 +41,7 @@ public class CSVProjectController {
         int uniqueCount = UniqueCount(uniqueValues);
         int emptyFieldCount = EmptyFieldCount(NullRecords);
         int cleanFieldCount = CleanFieldCount(NullRecords, employeeStore);
-        DatabaseDriver.DatabaseHandler(employeeStore);
+        DatabaseDriver.DatabaseHandler(uniqueValues);
         view.PrintResults(duplicatesCount, uniqueCount, emptyFieldCount, cleanFieldCount);
     }
 
