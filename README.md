@@ -22,3 +22,8 @@ This was developed in an MVC pattern, with use of the Data Access Object pattern
 * Allowing the user to edit a user record
 * Allow for deletion of a user record
 * Allow for getting multiple user records
+
+---
+### Known bugs
+
+No steps have been taken to preserve data integrity so unexpected unproduceable issues may pop up because of this.
