@@ -141,7 +141,7 @@ public class Employee {
 
     @Override
     public String toString() {
-        return "Employee{" +
+        return "Employee:" +
                 "employeeID=" + employeeID +
                 ", employeeNamePrefix='" + employeeNamePrefix + '\'' +
                 ", employeeFirstname='" + employeeFirstname + '\'' +
@@ -151,7 +151,6 @@ public class Employee {
                 ", employeeEmail='" + employeeEmail + '\'' +
                 ", employeeDoB=" + employeeDoB +
                 ", employeeDoJ=" + employeeDoJ +
-                ", employeeSalary=" + employeeSalary +
-                '}';
+                ", employeeSalary=" + employeeSalary;
     }
 }

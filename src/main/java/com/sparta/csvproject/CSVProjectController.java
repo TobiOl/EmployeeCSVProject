@@ -18,15 +18,7 @@ public class CSVProjectController{
         java.util.Date DoB, DoJ;
         java.sql.Date sqlDoB, sqlDoJ;
         String[] values;
-        CSVProjectView view = new CSVProjectView();
-        String fileName = null;
 
-      /*  if (fileChoice==1){
-            fileName="EmployeeRecords.csv";
-        }
-        else if (fileChoice==2){
-            fileName="EmployeeRecordsLarge.csv";
-        }*/
         //try-with-resources. closes resources when finished trying
         try (BufferedReader in = new BufferedReader(new FileReader("EmployeeRecordsLarge.csv"))){
             String headerLine = in.readLine();

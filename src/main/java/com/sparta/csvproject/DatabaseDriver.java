@@ -3,7 +3,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DatabaseDriver implements EmployeeDAO , Runnable{
+public class DatabaseDriver implements EmployeeDAO{
     private List<Employee> pls = new ArrayList<>();
 
     public List<Employee> getPls() {
@@ -36,7 +36,8 @@ public class DatabaseDriver implements EmployeeDAO , Runnable{
             throwables.printStackTrace();
         }
     }
-    public Runnable InsertIntoDatabase(List<Employee> employeeList, int threads){
+    public void InsertIntoDatabase(List<Employee> employeeList, int threads){
+
         try(Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/csvproject", "root", "Sparta")){
             connection.setAutoCommit(false);
             PreparedStatement insertIntoDB = connection.prepareStatement("INSERT IGNORE INTO Users(ID, Prefix, FirstName, MiddleInitial, LastName, Gender, Email, DateOfBirth, DateOfJoin, Salary)" +
@@ -54,9 +55,8 @@ public class DatabaseDriver implements EmployeeDAO , Runnable{
                 insertIntoDB.setDate(8, employeeList.get(i).getEmployeeDoB());
                 insertIntoDB.setDate(9, employeeList.get(i).getEmployeeDoJ());
                 insertIntoDB.setInt(10, employeeList.get(i).getEmployeeSalary());
-                insertIntoDB.addBatch();
+                insertIntoDB.execute();
             }
-            int[] results = insertIntoDB.executeBatch();
             insertIntoDB.close();
             connection.commit();
 
@@ -64,7 +64,7 @@ public class DatabaseDriver implements EmployeeDAO , Runnable{
             throwables.printStackTrace();
         }
 
-        return null;
+
     }
 
     @Override
@@ -86,8 +86,5 @@ public class DatabaseDriver implements EmployeeDAO , Runnable{
     }
 
 
-    @Override
-    public void run() {
 
-    }
 }
