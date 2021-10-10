@@ -9,7 +9,7 @@ import java.util.HashSet;
 import org.apache.log4j.PropertyConfigurator;
 import org.apache.log4j.Logger;
 
-public class CSVProjectController {
+public class CSVProjectController{
     private static Logger logger = Logger.getLogger("CSV Project Logger");
     public ArrayList<Employee> CSVRead(){
         PropertyConfigurator.configure("log4j.properties");
@@ -19,9 +19,16 @@ public class CSVProjectController {
         java.sql.Date sqlDoB, sqlDoJ;
         String[] values;
         CSVProjectView view = new CSVProjectView();
+        String fileName = null;
 
+      /*  if (fileChoice==1){
+            fileName="EmployeeRecords.csv";
+        }
+        else if (fileChoice==2){
+            fileName="EmployeeRecordsLarge.csv";
+        }*/
         //try-with-resources. closes resources when finished trying
-        try (BufferedReader in = new BufferedReader(new FileReader("EmployeeRecords.csv"))){
+        try (BufferedReader in = new BufferedReader(new FileReader("EmployeeRecordsLarge.csv"))){
             String headerLine = in.readLine();
             while ((line = in.readLine()) != null){
                 values = line.split(",");
@@ -85,5 +92,7 @@ public class CSVProjectController {
         int result = employeeListUneditedCount-uniqueEmployeeCount;
         return result;
     }
+
+
 }
 
